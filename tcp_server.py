@@ -1,13 +1,12 @@
+# VK
 import socket
-import threading
+import threading, base64
 
 bind_ip = "0.0.0.0"
 bind_port = 9999
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
 server.bind((bind_ip, bind_port))
-
 server.listen(5)
 
 print "[*] Listening on %s:%d" % (bind_ip, bind_port)
@@ -21,6 +20,8 @@ def handle_client(client_socket):
     request = client_socket.recv(1024)
 
     print "[*] Reveived: %s" % request
+    print "[*] Reveived: %s" % base64.b64decode(request)
+
 
     # send back a packet
     client_socket.send("ACK!\r\n")
