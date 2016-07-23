@@ -1,7 +1,8 @@
-import socket, base64
+import base64
+import socket
 
-target_host = "0.0.0.0"
-target_port = 9999
+target_host = "67.80.26.136"
+target_port = 8080
 
 # create a socket object
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
